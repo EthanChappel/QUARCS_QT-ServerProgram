@@ -922,11 +922,11 @@ cv::Mat MainWindow::colorImage(cv::Mat img16)
     AWBImg8color.create(img16.rows, img16.cols, CV_8UC3);
 
     Tools::ImageSoftAWB(img16, AWBImg16, MainCameraCFA, ImageGainR, ImageGainB, 30); // image software Auto White Balance is done in RAW image.
-    cv::cvtColor(AWBImg16, AWBImg16color, CV_BayerRG2BGR);
+    cv::cvtColor(AWBImg16, AWBImg16color, cv::COLOR_BayerRG2BGR);
 
     cv::cvtColor(AWBImg16color, AWBImg16mono, cv::COLOR_BGR2GRAY);
 
-    // cv::cvtColor(AWBImg16, AWBImg16color, CV_BayerRG2RGB);
+    // cv::cvtColor(AWBImg16, AWBImg16color, cv::COLOR_BayerRG2RGB);
 
     // cv::cvtColor(AWBImg16color, AWBImg16mono, cv::COLOR_RGB2GRAY);
 
@@ -1952,7 +1952,7 @@ void MainWindow::strechShowImage(cv::Mat img16,QString CFA,bool AutoStretch,bool
      AWBImg8color.create(img16.rows,img16.cols,CV_8UC3);
 
      Tools::ImageSoftAWB(img16,AWBImg16,CFA,ratioRG,ratioBG,offset);  //image software Auto White Balance is done in RAW image.
-     cv::cvtColor(AWBImg16,AWBImg16color,CV_BayerRG2BGR);
+     cv::cvtColor(AWBImg16,AWBImg16color,cv::COLOR_BayerRG2BGR);
     //  qDebug()<<"strechShowImage | 1";
      cv::cvtColor(AWBImg16color,AWBImg16mono,cv::COLOR_BGR2GRAY);
     //  qDebug()<<"strechShowImage | 2";

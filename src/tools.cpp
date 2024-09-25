@@ -1622,7 +1622,7 @@ void Tools::PaintHistogram(cv::Mat src,QLabel *label)
     glChannelCount = channelCount;
 
     cv::Mat gray;
-    cv::cvtColor(src, gray, CV_BGR2GRAY);//转换为灰度图像
+    cv::cvtColor(src, gray, cv::COLOR_BGR2GRAY);//转换为灰度图像
 
     const int channels[] = { 0 };
     cv::Mat hist;//定义输出Mat类型
@@ -1824,11 +1824,11 @@ void Tools::ShowOpenCV_QLabel_withRotate(cv::Mat img,QLabel *label,int RotateTyp
     //convert all kinds of image type to RGB888
     //input image is 3channel 8bit image
     if(img.type()==CV_8UC3){
-       cvtColor(img,imgRGB888,CV_BGR2RGB);
+       cvtColor(img,imgRGB888,cv::COLOR_BGR2RGB);
        //img.copyTo(imgRGB888);
     }
     else if(img.type()==CV_8UC1){
-       cvtColor(img,imgRGB888,CV_GRAY2BGR);
+       cvtColor(img,imgRGB888, cv::COLOR_GRAY2BGR);
     }
     else if(img.type()==CV_16UC1){
 
@@ -2358,7 +2358,7 @@ cv::Mat Tools::CalMoments(cv::Mat image)
   }
   else
   {
-    cvtColor(image, grayImage, CV_RGB2GRAY);
+    cvtColor(image, grayImage, cv::COLOR_RGB2GRAY);
   }
   qDebug("CalMoments:2");
  
@@ -2375,7 +2375,7 @@ cv::Mat Tools::SubBackGround(cv::Mat image)
     }
     else
     {
-      cvtColor(image, gray, CV_RGB2GRAY);
+      cvtColor(image, gray, cv::COLOR_RGB2GRAY);
     }
     cv::Scalar scalar = mean(gray);
     double Background = scalar.val[0];
